@@ -34,5 +34,14 @@ Thumbs.db
 
 # Poetry
 poetry.lock
+<<<<<<< HEAD
+.pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+__pycache__/
+=======
 .pyproject.toml.venv
 .venv/
+>>>>>>> fix-order-model
