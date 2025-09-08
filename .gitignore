@@ -1,26 +1,47 @@
-# Python
+# Arquivos/Diretórios do Python
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
 *.so
+*.egg
 *.egg-info/
-.env
+dist/
+build/
+.eggs/
 
-# Django
+# Banco de dados local
 db.sqlite3
+
+# Configurações locais
+.env
+*.env
+
+# Django stuff
+*.log
 media/
 staticfiles/
 
-# IDEs
+# VSCode / IDEs
 .vscode/
 .idea/
+*.swp
+*.swo
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
 
 # Poetry
 poetry.lock
+<<<<<<< HEAD
 .pytest_cache/
 
 # OS
 .DS_Store
 Thumbs.db
 __pycache__/
+=======
+.pyproject.toml.venv
+.venv/
+>>>>>>> fix-order-model
