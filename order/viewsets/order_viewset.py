@@ -7,5 +7,7 @@ from order.serializers import OrderSerializer
 class OrderViewSet(ModelViewSet):
 
     serializer_class = OrderSerializer
-    queryset = Order.objects.all()
+    queryset = Order.objects.all().order_by('id')
 
+    class Meta:
+        ordering = ['-id']

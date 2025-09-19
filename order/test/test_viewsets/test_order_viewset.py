@@ -16,6 +16,7 @@ class TestOrderViewSet(APITestCase):
     client = APIClient()
 
     def setUp(self):
+        self.client = APIClient()
         self.category = CategoryFactory(title='technology')
         self.product = ProductFactory(title='mouse', price=100, category=[self.category])
         self.order = OrderFactory(product=[self.product])
