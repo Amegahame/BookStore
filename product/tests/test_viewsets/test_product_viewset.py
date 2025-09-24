@@ -11,12 +11,10 @@ from product.models import Product
 
 
 class TestProductViewSet(APITestCase):
-    
-    client = APIClient()
-
+        
     def setUp(self):
         self.user = UserFactory()
-
+        self.client = APIClient()
         self.client.force_authenticate(user=self.user)
 
         self.product = ProductFactory(
