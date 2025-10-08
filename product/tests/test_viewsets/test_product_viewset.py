@@ -15,14 +15,17 @@ class TestProductViewSet(APITestCase):
     def setUp(self):
         self.user = UserFactory()
         self.client = APIClient()
-        self.client.force_authenticate(user=self.user)
-
+                
         self.product = ProductFactory(
             title='pro controller',
             price=200.00,
         )
 
     def test_get_all_product(self):
+        """
+        Teste de listagem - PÚBLICO (sem autenticação)
+        """
+               
         response = self.client.get(
             reverse('product-list', kwargs={'version': 'v1'})
         )
@@ -35,21 +38,24 @@ class TestProductViewSet(APITestCase):
         self.assertEqual(product_data['results'][0]['active'], self.product.active)
         
     def test_create_product(self):
+        """
+        Teste de criação - REQUER AUTENTICAÇÃO
+        """
+       
+        self.client.force_authenticate(user=self.user)
+        
         category = CategoryFactory()
         data = json.dumps({
             'title': 'notebook',
             'price': 800.00,
-            'categories_id': [ category.id]
+            'categories_id': [category.id]
         })
-
 
         response = self.client.post(
             reverse('product-list', kwargs={'version': 'v1'}),
             data=data,
             content_type='application/json'
         )
-
-
 
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
